@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Papiro Concursos — Apostila Polícia Penal RN 2026</title>
+<link rel="icon" type="image/svg+xml" href="logo.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --black:#0a0b0d;
+    --black-2:#141619;
+    --black-3:#1c1f24;
+    --gold:#c9a227;
+    --gold-light:#e6c35c;
+    --red:#c1272d;
+    --steel:#4a5259;
+    --line:#2a2e33;
+    --text:#f2f0ea;
+    --text-dim:#9aa0a6;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--black);
+    color:var(--text);
+    font-family:'Inter',sans-serif;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,h4{font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:.01em;}
+  .mono{font-family:'JetBrains Mono',monospace;}
+  a{color:inherit;}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px;}
+  .eyebrow{
+    font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:10px;
+  }
+  .eyebrow:before{content:"";width:22px;height:1px;background:var(--gold);}
+
+  /* HUD corner brackets, reusable */
+  .hud{position:relative;}
+  .hud:before,.hud:after{
+    content:"";position:absolute;width:14px;height:14px;
+    border-color:var(--gold);border-style:solid;opacity:.7;
+  }
+  .hud:before{top:-1px;left:-1px;border-width:2px 0 0 2px;}
+  .hud:after{bottom:-1px;right:-1px;border-width:0 2px 2px 0;}
+
+  /* ---------- HEADER ---------- */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(10,11,13,.9);backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  header .wrap{display:flex;align-items:center;justify-content:space-between;height:68px;}
+  .brand{display:flex;align-items:center;gap:11px;}
+  .badge{
+    width:38px;height:38px;
+    min-width:38px;min-height:38px;
+    object-fit:contain;
+    display:block;
+  }
+  .brand-name{font-family:'Oswald',sans-serif;font-weight:700;font-size:18px;letter-spacing:.03em;}
+  .brand-name span{color:var(--gold);}
+  .btn-nav{
+    font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase;
+    background:var(--gold);color:var(--black);font-weight:700;
+    padding:11px 20px;text-decoration:none;
+    clip-path:polygon(8px 0,100% 0,100% 100%,0 100%,0 8px);
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;padding:80px 0 100px;
+    overflow:hidden;
+    background:
+      linear-gradient(180deg, rgba(10,11,13,.4), var(--black) 85%),
+      repeating-linear-gradient(115deg, rgba(255,255,255,.015) 0px, rgba(255,255,255,.015) 1px, transparent 1px, transparent 46px),
+      var(--black);
+    border-bottom:1px solid var(--line);
+  }
+  .hero-art{
+    position:absolute;right:-30px;bottom:-10px;
+    width:380px;max-width:48vw;height:auto;
+    opacity:.07;pointer-events:none;z-index:0;
+  }
+  .hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:start;}
+  .alert-tag{
+    display:inline-flex;align-items:center;gap:8px;
+    background:rgba(193,39,45,.12);border:1px solid var(--red);color:#ff8f8f;
+    font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;
+    padding:7px 14px;margin-bottom:24px;
+  }
+  .alert-tag:before{content:"";width:7px;height:7px;background:var(--red);border-radius:50%;animation:blink 1.4s infinite;}
+  @keyframes blink{0%,100%{opacity:1;}50%{opacity:.25;}}
+  .hero h1{
+    font-size:50px;line-height:1.03;color:var(--text);margin-bottom:22px;font-weight:700;
+  }
+  .hero h1 .out{-webkit-text-stroke:1.5px var(--gold);color:transparent;}
+  .hero p.lead{
+    font-size:17px;line-height:1.65;color:var(--text-dim);max-width:54ch;margin-bottom:34px;font-family:'Inter',sans-serif;text-transform:none;
+  }
+  .cta{
+    display:inline-flex;align-items:center;gap:10px;
+    background:var(--gold);color:var(--black);
+    font-family:'JetBrains Mono',monospace;font-weight:700;font-size:14px;
+    text-transform:uppercase;letter-spacing:.05em;
+    padding:18px 30px;text-decoration:none;
+    clip-path:polygon(10px 0,100% 0,100% 100%,0 100%,0 10px);
+    transition:transform .15s ease, background .15s ease;
+  }
+  .cta:hover{background:var(--gold-light);transform:translateY(-2px);}
+  .cta-sub{font-size:12px;color:var(--text-dim);margin-top:14px;font-family:'JetBrains Mono',monospace;}
+
+  .hud-panel{
+    background:var(--black-2);border:1px solid var(--line);padding:26px 24px;
+  }
+  .hud-panel .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;}
+  .hud-panel .top .eyebrow{margin-bottom:0;}
+  .hud-panel .live{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--red);display:flex;align-items:center;gap:6px;}
+  .hud-panel .live:before{content:"";width:6px;height:6px;background:var(--red);border-radius:50%;animation:blink 1.4s infinite;}
+  .stat-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;}
+  .stat{border-left:2px solid var(--gold);padding-left:12px;}
+  .stat .v{font-family:'Oswald',sans-serif;font-size:22px;font-weight:600;color:var(--text);line-height:1;}
+  .stat .l{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-dim);text-transform:uppercase;letter-spacing:.06em;margin-top:4px;}
+  .hud-divider{border-top:1px dashed var(--line);margin:18px 0;}
+  .countdown-box .eyebrow{color:var(--red);margin-bottom:12px;}
+  .countdown{display:flex;gap:8px;}
+  .countdown .unit{background:var(--black);border:1px solid var(--line);text-align:center;flex:1;padding:12px 6px;}
+  .countdown .num{font-family:'Oswald',sans-serif;font-weight:700;font-size:24px;color:var(--gold);}
+  .countdown .lbl{font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--text-dim);margin-top:3px;font-family:'JetBrains Mono',monospace;}
+
+  /* ---------- SECTION GENERIC ---------- */
+  section{padding:88px 0;}
+  .section-head{max-width:660px;margin-bottom:50px;}
+  .section-head h2{font-size:34px;color:var(--text);margin-top:14px;line-height:1.1;font-weight:700;}
+  .section-head p{color:var(--text-dim);margin-top:16px;font-size:16px;line-height:1.65;text-transform:none;font-family:'Inter',sans-serif;}
+
+  /* ---------- AGITATION ---------- */
+  .agitation{background:var(--black-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .ag-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
+  .ag-card{background:var(--black-2);padding:30px 26px;}
+  .ag-card .n{font-family:'JetBrains Mono',monospace;color:var(--red);font-size:12px;letter-spacing:.08em;}
+  .ag-card h4{font-family:'Oswald',sans-serif;font-size:19px;margin:12px 0 10px;color:var(--text);font-weight:600;}
+  .ag-card p{font-size:14.5px;color:var(--text-dim);line-height:1.6;text-transform:none;font-family:'Inter',sans-serif;}
+
+  /* ---------- CONTEUDO ---------- */
+  .materias{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;}
+  .materia{
+    background:var(--black-2);border:1px solid var(--line);
+    padding:16px 18px;display:flex;align-items:baseline;gap:12px;
+    border-left:3px solid var(--gold);
+  }
+  .materia .chk{font-family:'JetBrains Mono',monospace;color:var(--gold);font-size:13px;flex-shrink:0;}
+  .materia .t{font-weight:600;font-size:14.5px;font-family:'Inter',sans-serif;}
+  .materia .s{font-size:12.5px;color:var(--text-dim);margin-top:3px;font-family:'Inter',sans-serif;}
+
+  .box-included{
+    margin-top:48px;background:var(--black-3);border:1px solid var(--line);
+    padding:34px;display:grid;grid-template-columns:1fr 1fr;gap:26px;
+  }
+  .box-included h3{color:var(--gold);font-size:14px;letter-spacing:.08em;font-family:'JetBrains Mono',monospace;margin-bottom:18px;font-weight:700;text-transform:uppercase;}
+  .box-included ul{list-style:none;}
+  .box-included li{font-size:14.5px;padding:10px 0;border-top:1px solid var(--line);color:var(--text-dim);font-family:'Inter',sans-serif;}
+  .box-included li:first-child{border-top:none;}
+  .box-included li b{color:var(--text);}
+
+  /* ---------- DIFERENCIAL ---------- */
+  .diferencial{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .dif-card{border:1px solid var(--line);padding:28px 24px;background:var(--black-2);border-top:3px solid var(--gold);}
+  .dif-card .num{font-family:'JetBrains Mono',monospace;color:var(--gold);font-size:13px;}
+  .dif-card h4{font-size:19px;margin:14px 0 10px;color:var(--text);font-weight:600;}
+  .dif-card p{font-size:14px;color:var(--text-dim);line-height:1.6;text-transform:none;font-family:'Inter',sans-serif;}
+
+  /* ---------- PRICING ---------- */
+  .pricing{background:var(--black-2);border-top:1px solid var(--line);position:relative;overflow:hidden;}
+  .badge-watermark{
+    position:absolute;top:50%;left:50%;
+    transform:translate(-50%,-50%);
+    width:640px;max-width:120vw;height:auto;
+    opacity:.04;pointer-events:none;z-index:0;
+  }
+  .pricing .wrap{position:relative;z-index:1;}
+  .price-card{
+    max-width:460px;margin:0 auto;background:var(--black);border:1px solid var(--gold);position:relative;
+  }
+  .price-card .tab{
+    background:var(--gold);color:var(--black);font-family:'JetBrains Mono',monospace;
+    font-size:12px;letter-spacing:.08em;text-transform:uppercase;text-align:center;
+    padding:10px;font-weight:700;
+  }
+  .price-card .body{padding:36px 32px;}
+  .price-card h3{font-size:23px;margin-bottom:6px;color:var(--text);font-weight:700;}
+  .price-card .item{font-size:13.5px;color:var(--text-dim);margin-bottom:24px;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.02em;}
+  .price-row{display:flex;align-items:baseline;gap:14px;margin-bottom:8px;}
+  .price-old{font-family:'JetBrains Mono',monospace;text-decoration:line-through;color:var(--text-dim);font-size:16px;}
+  .price-new{font-family:'Oswald',sans-serif;font-weight:700;font-size:46px;color:var(--gold);}
+  .price-new sup{font-size:18px;}
+  .price-note{font-size:12.5px;color:var(--text-dim);margin-bottom:26px;font-family:'JetBrains Mono',monospace;}
+  .price-card .cta{width:100%;justify-content:center;margin-bottom:16px;}
+  .price-features{margin-top:24px;border-top:1px solid var(--line);padding-top:22px;}
+  .price-features li{list-style:none;font-size:13.5px;padding:7px 0;display:flex;gap:9px;color:var(--text-dim);font-family:'Inter',sans-serif;}
+  .price-features li:before{content:"✓";color:var(--gold);font-weight:700;}
+  .kiwify-badge{
+    display:flex;align-items:center;justify-content:center;gap:8px;
+    font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-dim);
+    margin-top:16px;letter-spacing:.03em;
+  }
+
+  /* ---------- GARANTIA ---------- */
+  .garantia .wrap{display:flex;align-items:center;gap:40px;max-width:820px;}
+  .seal{
+    flex-shrink:0;width:118px;height:118px;position:relative;
+    background:var(--black-2);border:2px solid var(--gold);
+    display:flex;align-items:center;justify-content:center;text-align:center;
+    font-family:'JetBrains Mono',monospace;color:var(--gold);font-size:11px;
+    line-height:1.5;letter-spacing:.05em;text-transform:uppercase;font-weight:600;
+    clip-path:polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  }
+  .garantia h3{font-size:23px;color:var(--text);margin-bottom:10px;font-weight:700;}
+  .garantia p{color:var(--text-dim);font-size:15px;line-height:1.65;text-transform:none;font-family:'Inter',sans-serif;}
+
+  /* ---------- FAQ ---------- */
+  .faq{background:var(--black-2);border-top:1px solid var(--line);}
+  .faq-item{border-bottom:1px solid var(--line);}
+  .faq-item summary{
+    cursor:pointer;padding:22px 4px;font-family:'Oswald',sans-serif;font-weight:600;font-size:16.5px;
+    display:flex;justify-content:space-between;align-items:center;color:var(--text);
+    list-style:none;text-transform:none;
+  }
+  .faq-item summary::-webkit-details-marker{display:none;}
+  .faq-item summary:after{content:"+";font-family:'JetBrains Mono',monospace;font-size:20px;color:var(--gold);}
+  .faq-item[open] summary:after{content:"–";}
+  .faq-item p{padding:0 4px 22px;color:var(--text-dim);font-size:14.5px;line-height:1.65;max-width:70ch;font-family:'Inter',sans-serif;text-transform:none;}
+
+  /* ---------- FINAL CTA ---------- */
+  .final-cta{
+    padding:100px 0;text-align:center;
+    background:
+      radial-gradient(ellipse 700px 400px at 50% 0%, rgba(201,162,39,.14), transparent 60%),
+      var(--black);
+  }
+  .final-cta h2{font-size:36px;color:var(--text);max-width:640px;margin:0 auto 18px;font-weight:700;}
+  .final-cta p{color:var(--text-dim);margin-bottom:36px;font-family:'Inter',sans-serif;text-transform:none;}
+
+  /* ---------- FOOTER ---------- */
+  footer{border-top:1px solid var(--line);padding:40px 0;}
+  footer p{font-size:12px;color:var(--text-dim);line-height:1.75;max-width:780px;font-family:'Inter',sans-serif;}
+  footer .brand{margin-bottom:16px;}
+
+  @media (max-width:860px){
+    .hero .wrap{grid-template-columns:1fr;gap:44px;}
+    .hero h1{font-size:34px;}
+    .ag-grid{grid-template-columns:1fr;}
+    .materias{grid-template-columns:1fr;}
+    .box-included{grid-template-columns:1fr;}
+    .diferencial{grid-template-columns:1fr;}
+    .garantia .wrap{flex-direction:column;text-align:center;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="brand">
+      <img src="logo.svg" alt="Papiro Concursos" class="badge">
+      <div class="brand-name">PAPIRO <span>CONCURSOS</span></div>
+    </div>
+    <a href="#oferta" class="btn-nav">Garantir apostila</a>
+  </div>
+</header>
+
+<section class="hero">
+  <svg class="hero-art" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <line x1="0" y1="270" x2="400" y2="270" stroke="var(--text)" stroke-width="1.5"/>
+    <line x1="60" y1="270" x2="150" y2="120" stroke="var(--text)" stroke-width="1.5"/>
+    <line x1="340" y1="270" x2="250" y2="120" stroke="var(--text)" stroke-width="1.5"/>
+    <line x1="120" y1="270" x2="170" y2="120" stroke="var(--text)" stroke-width="1.5"/>
+    <line x1="280" y1="270" x2="230" y2="120" stroke="var(--text)" stroke-width="1.5"/>
+    <line x1="60" y1="270" x2="280" y2="200" stroke="var(--text)" stroke-width="1"/>
+    <line x1="340" y1="270" x2="120" y2="200" stroke="var(--text)" stroke-width="1"/>
+    <line x1="90" y1="230" x2="310" y2="160" stroke="var(--text)" stroke-width="1"/>
+    <line x1="310" y1="230" x2="90" y2="160" stroke="var(--text)" stroke-width="1"/>
+    <rect x="150" y="112" width="100" height="10" stroke="var(--text)" stroke-width="1.5"/>
+    <rect x="165" y="60" width="70" height="52" stroke="var(--text)" stroke-width="1.5"/>
+    <polygon points="160,60 240,60 200,32" stroke="var(--text)" stroke-width="1.5"/>
+    <rect x="185" y="75" width="30" height="20" stroke="var(--gold)" stroke-width="1.2"/>
+    <path d="M235 70 L 400 10 M235 70 L 400 130" stroke="var(--gold)" stroke-width="1" stroke-dasharray="2 4"/>
+  </svg>
+  <div class="wrap">
+    <div>
+      <div class="alert-tag">Edital publicado · inscrições abertas</div>
+      <h1>Prepare-se para vestir a farda da <span class="out">Polícia Penal do RN</span>.</h1>
+      <p class="lead">Apostila em PDF construída em cima do edital 2026, cobrindo as 12 disciplinas cobradas pelo Instituto Avalia — com questões comentadas para você treinar exatamente no estilo da banca, não em provas genéricas.</p>
+      <a href="#oferta" class="cta">Quero a apostila agora →</a>
+      <div class="cta-sub">Acesso imediato após a confirmação · PDF para baixar e estudar offline</div>
+    </div>
+
+    <div class="hud-panel hud">
+      <div class="top">
+        <div class="eyebrow">Ficha do concurso</div>
+        <div class="live">ao vivo</div>
+      </div>
+      <div class="stat-row">
+        <div class="stat"><div class="v">260</div><div class="l">Vagas totais</div></div>
+        <div class="stat"><div class="v">R$ 5.681</div><div class="l">Salário inicial</div></div>
+      </div>
+      <div class="stat-row">
+        <div class="stat"><div class="v">Avalia</div><div class="l">Banca organizadora</div></div>
+        <div class="stat"><div class="v">100</div><div class="l">Questões · corte 73 pts</div></div>
+      </div>
+      <div class="hud-divider"></div>
+      <div class="countdown-box">
+        <div class="eyebrow">Faltam para a prova · 13/09/2026</div>
+        <div class="countdown" id="countdown">
+          <div class="unit"><div class="num" id="cd-days">--</div><div class="lbl">dias</div></div>
+          <div class="unit"><div class="num" id="cd-hours">--</div><div class="lbl">horas</div></div>
+          <div class="unit"><div class="num" id="cd-min">--</div><div class="lbl">min</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="agitation">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">O que você está enfrentando</div>
+      <h2>O Instituto Avalia não perdoa quem estuda "por alto"</h2>
+      <p>Essa banca é conhecida por cobrar a letra da lei, sem interpretação frouxa. Quem estuda por material genérico chega despreparado para o estilo real das questões.</p>
+    </div>
+    <div class="ag-grid">
+      <div class="ag-card">
+        <div class="n">01</div>
+        <h4>Tempo curto</h4>
+        <p>Da publicação do edital até a prova são poucos meses. Não dá pra perder tempo garimpando conteúdo espalhado em vídeo de 40 minutos.</p>
+      </div>
+      <div class="ag-card">
+        <div class="n">02</div>
+        <h4>Concorrência alta</h4>
+        <p>260 vagas parece muito, mas a procura por estabilidade e salário de R$ 5.681,78 atrai milhares de candidatos em todo o estado.</p>
+      </div>
+      <div class="ag-card">
+        <div class="n">03</div>
+        <h4>Corte por pontos</h4>
+        <p>Quem tira menos de 73 pontos na objetiva já está fora. Cada disciplina mal estudada pesa direto na sua nota de corte.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="conteudo">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Conteúdo programático</div>
+      <h2>As 12 matérias do edital, uma por uma</h2>
+      <p>Nada de conteúdo solto: a apostila segue a ordem e o peso exatos do edital do concurso PP RN 2026, com questões comentadas ao final de cada matéria.</p>
+    </div>
+
+    <div class="materias">
+      <div class="materia"><span class="chk">✓</span><div><div class="t">Língua Portuguesa</div><div class="s">Interpretação, gramática normativa e redação oficial</div></div></div>
+      <div class="materia"><span class="chk">✓</span><div><div class="t">Direito Constitucional</div><div class="s">Direitos e garantias fundamentais, organização do Estado</div></div></div>
+      <div class="materia"><span class="chk">✓</span><div><div class="t">Direito Administrativo</div><div class="s">Atos, poderes e regime jurídico dos servidores</div></div></div>
+      <div class="materia"><span class="chk">✓</span><div><div class="t">Direito Penal</div><div class="s">Parte geral e crimes aplicáveis ao sistema prisional</div></div></div>
+      <div class="materia"><span class="chk">✓</span><div><div class="t">Processo Penal</div><div class="s">Inquérito, prisões e procedimentos</div></div></div>
+      <div class="materia"><span class="chk">✓</span><div><div class="t">Execução Penal</div><div class="s">LEP na íntegra — a "lei seca" que a banca mais cobra</div></div></div>
+      <div class="materia"><span class="chk">✓</span><div><div class="t">Direitos Humanos</div><div class="s">Tratados, princípios e sistema prisional</div></div></div>
+      <div class="materia"><span class="chk">✓</span><div><div class="t">Ética no Serviço Público</div><div class="s">Código de conduta e regime disciplinar</div></div></div>
+      <div class="materia"><span class="chk">✓</span><div><div class="t">História do RN</div><div class="s">Formação histórica e fatos cobrados em edital</div></div></div>
+      <div class="materia"><span class="chk">✓</span><div><div class="t">Geografia do RN</div><div class="s">Aspectos geoeconômicos do estado</div></div></div>
+      <div class="materia"><span class="chk">✓</span><div><div class="t">Regime Jurídico Estatutário</div><div class="s">Estatuto dos servidores e dos agentes penitenciários do RN</div></div></div>
+      <div class="materia"><span class="chk">✓</span><div><div class="t">Conhecimentos Específicos</div><div class="s">Peso 2 na prova — o bloco que mais decide sua nota final</div></div></div>
+    </div>
+
+    <div class="box-included">
+      <div>
+        <h3>O que vem no material</h3>
+        <ul>
+          <li><b>PDF completo</b> · teoria direta ao ponto, sem enrolação, por disciplina do edital</li>
+          <li><b>Questões comentadas</b> · resolução comentada alternativa por alternativa</li>
+          <li><b>Foco na banca</b> · material pensado no estilo de cobrança do Instituto Avalia</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Formato e acesso</h3>
+        <ul>
+          <li><b>Entrega digital</b> · acesso liberado logo após a confirmação do pagamento</li>
+          <li><b>Estudo offline</b> · baixe uma vez e estude sem depender de internet</li>
+          <li><b>Uso em qualquer dispositivo</b> · celular, tablet ou computador</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="agitation">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Por que a Papiro</div>
+      <h2>Feita para este edital específico — não um material genérico de "concursos policiais"</h2>
+    </div>
+    <div class="diferencial">
+      <div class="dif-card">
+        <div class="num">01</div>
+        <h4>Edital, não achismo</h4>
+        <p>Cada tópico da apostila corresponde a um item do edital do concurso PP RN 2026. Nada de estudar conteúdo que não vai cair.</p>
+      </div>
+      <div class="dif-card">
+        <div class="num">02</div>
+        <h4>Treino no estilo da banca</h4>
+        <p>As questões comentadas seguem o padrão de cobrança do Instituto Avalia, para você já entrar treinado no formato da prova.</p>
+      </div>
+      <div class="dif-card">
+        <div class="num">03</div>
+        <h4>Objetividade</h4>
+        <p>Com a prova em setembro, o material prioriza o que rende pontos primeiro, sem enrolação nem conteúdo de sobra.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pricing" id="oferta">
+  <svg class="badge-watermark" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <circle cx="100" cy="100" r="90" stroke="var(--gold)" stroke-width="1"/>
+    <circle cx="100" cy="100" r="72" stroke="var(--gold)" stroke-width="1"/>
+    <polygon points="100,20 118,78 178,78 129,112 147,170 100,135 53,170 71,112 22,78 82,78" stroke="var(--gold)" stroke-width="1"/>
+  </svg>
+  <div class="wrap">
+    <div class="section-head" style="margin:0 auto 48px;text-align:center;max-width:520px;">
+      <div class="eyebrow" style="justify-content:center;">Protocolo de aquisição</div>
+      <h2>Garanta sua apostila do concurso PP RN</h2>
+    </div>
+
+    <div class="price-card">
+      <div class="tab">Acesso único · sem mensalidade</div>
+      <div class="body">
+        <h3>Apostila Completa PP RN 2026</h3>
+        <div class="item">PDF + questões comentadas · 12 disciplinas do edital</div>
+        <div class="price-row">
+          <span class="price-old">R$ 97</span>
+          <span class="price-new"><sup>R$</sup>47</span>
+        </div>
+        <div class="price-note">Pagamento único via Kiwify · acesso liberado na hora</div>
+
+        <a href="https://pay.kiwify.com.br/b7yC4Rq" class="cta" target="_blank" rel="noopener">Comprar agora com desconto</a>
+
+        <ul class="price-features">
+          <li>Todas as 12 matérias do edital, na ordem cobrada</li>
+          <li>Questões comentadas alternativa por alternativa</li>
+          <li>Atualizações gratuitas até a data da prova</li>
+          <li>Garantia de 7 dias — devolução total</li>
+        </ul>
+        <div class="kiwify-badge">🔒 Pagamento processado com segurança pela Kiwify</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="garantia">
+  <div class="wrap">
+    <div class="seal">garantia<br>7 dias<br>incondicional</div>
+    <div>
+      <h3>Risco zero para você</h3>
+      <p>Se em até 7 dias você sentir que a apostila não é para você, é só pedir o reembolso — devolvemos 100% do valor, sem perguntas e sem burocracia.</p>
+    </div>
+  </div>
+</section>
+
+<section class="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Dúvidas frequentes</div>
+      <h2>Perguntas antes de garantir a sua</h2>
+    </div>
+
+    <details class="faq-item" open>
+      <summary>Como recebo a apostila depois de comprar?</summary>
+      <p>O acesso é liberado automaticamente após a confirmação do pagamento na Kiwify. Você recebe um link para baixar o PDF e pode estudar offline a partir daí.</p>
+    </details>
+    <details class="faq-item">
+      <summary>O material é atualizado conforme o edital?</summary>
+      <p>Sim. O conteúdo foi organizado com base no edital publicado do concurso PP RN 2026 e nas disciplinas exigidas pelo Instituto Avalia para o cargo de Policial Penal.</p>
+    </details>
+    <details class="faq-item">
+      <summary>A Papiro Concursos é um material oficial do governo ou da banca?</summary>
+      <p>Não. É um material de estudo independente, produzido para apoiar sua preparação para a prova. Não tem vínculo com o Instituto Avalia, com a Sesap/RN ou com qualquer órgão público.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Funciona para quem está começando do zero?</summary>
+      <p>Sim, o conteúdo é direto e organizado por disciplina, o que ajuda tanto quem está revisando quanto quem está começando a estudar para este edital agora.</p>
+    </details>
+    <details class="faq-item">
+      <summary>E se eu não gostar do material?</summary>
+      <p>Você tem 7 dias de garantia incondicional. Se não for para você, devolvemos 100% do valor pago.</p>
+    </details>
+  </div>
+</section>
+
+<section class="final-cta">
+  <div class="wrap">
+    <h2>A prova é dia 13 de setembro. O tempo de estudo já começou a correr.</h2>
+    <p>Garanta agora o material feito em cima do edital do concurso PP RN e comece a estudar hoje.</p>
+    <a href="#oferta" class="cta">Quero garantir minha apostila</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="brand">
+      <img src="logo.svg" alt="Papiro Concursos" class="badge">
+      <div class="brand-name">PAPIRO <span>CONCURSOS</span></div>
+    </div>
+    <p>
+      Este é um material de estudo independente, produzido por terceiros, sem qualquer vínculo com o Instituto Avalia, a Secretaria de Estado da Administração Penitenciária do RN ou qualquer órgão público. Os dados do edital citados nesta página (vagas, salários, datas e conteúdo programático) têm caráter informativo e podem sofrer alterações — consulte sempre o edital oficial no site da banca organizadora. Produto digital não físico, entregue via download.
+    </p>
+  </div>
+</footer>
+
+<script>
+  const examDate = new Date("2026-09-13T08:00:00-03:00").getTime();
+  function updateCountdown(){
+    const now = new Date().getTime();
+    const diff = examDate - now;
+    if(diff <= 0){
+      document.getElementById('cd-days').textContent = '0';
+      document.getElementById('cd-hours').textContent = '0';
+      document.getElementById('cd-min').textContent = '0';
+      return;
+    }
+    const days = Math.floor(diff / (1000*60*60*24));
+    const hours = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
+    const mins = Math.floor((diff % (1000*60*60)) / (1000*60));
+    document.getElementById('cd-days').textContent = days;
+    document.getElementById('cd-hours').textContent = hours;
+    document.getElementById('cd-min').textContent = mins;
+  }
+  updateCountdown();
+  setInterval(updateCountdown, 60000);
+</script>
+
+</body>
+</html>
